@@ -1,14 +1,16 @@
 import { GoogleGenAI } from "@google/genai";
 
+// Declare process to avoid TypeScript "Cannot find name 'process'" build errors
+declare const process: { env: { API_KEY: string } };
+
 // Safely retrieve API key to prevent "process is not defined" crash in Vite/Browser
-// This ensures the app loads even if the environment variable isn't fully configured yet.
 const getApiKey = () => {
   try {
     if (typeof process !== "undefined" && process.env) {
       return process.env.API_KEY;
     }
   } catch (e) {
-    // ignore reference errors
+    // ignore reference errors in environments where process is not defined
   }
   return "";
 };
@@ -24,6 +26,6 @@ export const generateHvacAdvice = async (query: string): Promise<string> => {
     return response.text || "I couldn't generate a response at this time.";
   } catch (error) {
     console.error("Error generating HVAC advice:", error);
-    return "Sorry, I am having trouble connecting to the service.";
+    return "Sorry, I am having trouble connecting to the service. Please call us directly.";
   }
 };
