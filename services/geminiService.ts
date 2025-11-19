@@ -1,6 +1,19 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Safely retrieve API key to prevent "process is not defined" crash in Vite/Browser
+// This ensures the app loads even if the environment variable isn't fully configured yet.
+const getApiKey = () => {
+  try {
+    if (typeof process !== "undefined" && process.env) {
+      return process.env.API_KEY;
+    }
+  } catch (e) {
+    // ignore reference errors
+  }
+  return "";
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 export const generateHvacAdvice = async (query: string): Promise<string> => {
   try {
