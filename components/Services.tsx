@@ -1,56 +1,63 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const services = [
-  {
-    title: "AC Installation",
-    desc: "Energy-efficient system replacements tailored to your home's needs.",
-    image: "https://images.unsplash.com/photo-1521207418485-fe9c3345d487?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Rapid Repair",
-    desc: "Diagnostic and repair services for all makes and models.",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Preventative Maintenance",
-    desc: "Routine tune-ups to extend the life of your HVAC system.",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  }
-];
-
 export const Services: React.FC = () => {
-  return (
-    <section id="services" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#E31E24] font-bold uppercase tracking-widest text-sm">Our Expertise</span>
-          <h2 className="text-4xl font-black text-[#002855] mt-2 mb-4">Complete Home Comfort</h2>
-          <div className="h-1 w-20 bg-gray-200 mx-auto"></div>
-        </div>
+  const services = [
+    "Full AC System Replacement",
+    "Emergency Repairs",
+    "Ductwork & Insulation",
+    "Smart Thermostats",
+    "Air Purification Systems",
+    "Preventative Maintenance",
+    "Commercial HVAC",
+    "Heat Pumps & Furnaces"
+  ];
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, idx) => (
-            <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100">
-              <div className="h-56 overflow-hidden relative">
-                 <img 
-                   src={service.image} 
-                   alt={service.title} 
-                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                 />
-                 <div className="absolute inset-0 bg-[#002855]/0 group-hover:bg-[#002855]/20 transition-colors"></div>
+  return (
+    <section className="py-24 bg-[#111111] text-white border-t border-white/10" id="services">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+           
+           <div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-white leading-tight">
+                Everything You Need <br/> for Perfect Climate Control
+              </h2>
+              <p className="text-gray-400 mb-10 text-lg font-light leading-relaxed">
+                No need to juggle multiple contractors or stress over logistics. Roman's Service manages every step of your comfort with precision.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                 {services.map((item, idx) => (
+                   <div key={idx} className="bg-[#111111] p-5 hover:bg-[#1a1a1a] transition-colors cursor-default">
+                      <span className="font-bold text-sm tracking-widest uppercase text-white">{item}</span>
+                   </div>
+                 ))}
               </div>
-              <div className="p-8">
-                <h3 className="text-xl font-black text-[#002855] mb-3 uppercase">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed text-sm font-medium">
-                  {service.desc}
-                </p>
-                <a href="#quote" className="inline-flex items-center text-[#E31E24] font-bold text-sm uppercase hover:text-[#002855] transition-colors">
-                  Get Quote <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
+
+              <div className="mt-12">
+                 <a href="#quote" className="inline-flex items-center bg-[#E31E24] text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-colors">
+                    Get My Free Design Consultation <ArrowRight className="ml-3 w-4 h-4" />
+                 </a>
+                 <p className="mt-6 text-xs text-gray-500 font-medium tracking-wide">
+                    Schedule now and receive a FREE design consultation + $1,500 off your project this November
+                 </p>
               </div>
-            </div>
-          ))}
+           </div>
+
+           <div className="relative h-[600px] bg-gray-900 overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                alt="HVAC Technician" 
+                className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent">
+                 <div className="border-l-4 border-[#E31E24] pl-6">
+                    <p className="font-serif font-bold text-2xl text-white italic mb-3">"Roman's Service made it so easy. They handled everything from design to installation."</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white">Margaret W. • Sarasota, FL</p>
+                 </div>
+              </div>
+           </div>
+
         </div>
       </div>
     </section>

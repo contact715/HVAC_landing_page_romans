@@ -4,39 +4,39 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0b1118] text-gray-400 py-16 border-t-4 border-[#E31E24]">
+    <footer className="bg-black text-gray-500 py-20 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           {/* Brand Col */}
           <div>
-            <h3 className="text-2xl font-black text-white uppercase italic mb-6">
+            <h3 className="text-3xl font-black text-white uppercase italic mb-8 tracking-tighter">
               Roman's <span className="text-[#E31E24]">Service</span>
             </h3>
-            <p className="text-sm leading-relaxed mb-6 max-w-xs">
-              Delivering honest, high-quality air conditioning and heating services to Florida homeowners.
+            <p className="text-sm leading-relaxed mb-8 max-w-xs font-medium">
+              Delivering honest, high-quality air conditioning and heating services to Florida homeowners since 2005.
             </p>
             <div className="flex gap-4">
                 {/* Social placeholders */}
-                <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-[#E31E24] transition-colors cursor-pointer text-white font-bold">fb</div>
-                <div className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-[#E31E24] transition-colors cursor-pointer text-white font-bold">in</div>
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-[#E31E24] transition-colors cursor-pointer text-white font-bold text-xs">FB</div>
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-[#E31E24] transition-colors cursor-pointer text-white font-bold text-xs">IG</div>
             </div>
           </div>
 
           {/* Contact Col */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider mb-6">Contact Info</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#E31E24] flex-shrink-0" />
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Contact Info</h4>
+            <ul className="space-y-6 text-sm">
+              <li className="flex items-start gap-4">
+                <MapPin className="w-4 h-4 text-[#E31E24] flex-shrink-0 mt-1" />
                 <span>{COMPANY_INFO.address}</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#E31E24] flex-shrink-0" />
+              <li className="flex items-center gap-4">
+                <Phone className="w-4 h-4 text-[#E31E24] flex-shrink-0" />
                 <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-white transition-colors">{COMPANY_INFO.phone}</a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#E31E24] flex-shrink-0" />
+              <li className="flex items-center gap-4">
+                <Mail className="w-4 h-4 text-[#E31E24] flex-shrink-0" />
                 <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white transition-colors">{COMPANY_INFO.email}</a>
               </li>
             </ul>
@@ -44,10 +44,10 @@ export const Footer: React.FC = () => {
 
           {/* Areas Col */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider mb-6">Service Areas</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Service Areas</h4>
             <div className="flex flex-wrap gap-2">
               {SERVICE_AREAS.map(area => (
-                <span key={area} className="bg-gray-800 text-xs px-3 py-1 rounded hover:bg-gray-700 transition-colors cursor-default">
+                <span key={area} className="bg-white/5 text-[10px] uppercase font-bold tracking-wide px-3 py-2 text-gray-400 hover:bg-white/10 transition-colors cursor-default">
                   {area}
                 </span>
               ))}
@@ -56,21 +56,21 @@ export const Footer: React.FC = () => {
 
           {/* License Col */}
           <div>
-             <h4 className="text-white font-bold uppercase tracking-wider mb-6">Credentials</h4>
-             <p className="text-sm mb-2 font-mono text-gray-500">{COMPANY_INFO.license}</p>
-             <p className="text-sm mb-4 text-gray-500">Bonded & Insured</p>
-             <div className="p-4 bg-white/5 rounded border border-white/10">
-                <p className="text-xs text-center">"Excellent service and fair prices. Highly recommended!"</p>
-                <div className="flex justify-center mt-2 text-[#E31E24]">★★★★★</div>
+             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Credentials</h4>
+             <p className="text-sm mb-2 font-mono text-gray-400">{COMPANY_INFO.license}</p>
+             <p className="text-sm mb-6 text-gray-400">Bonded & Insured</p>
+             <div className="p-6 bg-white/5 border border-white/5">
+                <p className="text-xs text-center italic text-gray-300">"Excellent service and fair prices. Highly recommended!"</p>
+                <div className="flex justify-center mt-3 text-[#E31E24] gap-1">★★★★★</div>
              </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+        <div className="border-t border-gray-900 mt-20 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest font-bold text-gray-600">
           <p>&copy; {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+          <div className="flex space-x-8 mt-4 md:mt-0">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

@@ -1,58 +1,88 @@
 import React from 'react';
-import { Star, CheckCircle } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const reviews = [
   {
-    name: "Sarah Jenkins",
+    title: "AC Replacement - Sarasota, FL",
+    source: "Google Review",
+    rating: "4.9/5",
+    text: "I was nervous about such a big project, but Roman's Service made it so easy. They handled everything from design to installation, and kept me updated every step of the way. My house is finally cool!",
+    author: "Patricia M.",
     location: "Sarasota, FL",
-    content: "The team was incredible. They replaced our entire AC unit in one day, cleaned up perfectly, and the house has never been cooler.",
-    rating: 5
+    service: "Full System Install",
+    date: "October 2023"
   },
   {
-    name: "Michael Rodriguez",
+    title: "Emergency Repair - Bradenton, FL",
+    source: "Yelp Review",
+    rating: "4.6/5",
+    text: "The attention to detail was impressive. The team was always on time, respectful, and cleaned up perfectly each day. The price was exactly what they quoted.",
+    author: "Susan & John",
     location: "Bradenton, FL",
-    content: "Fair pricing and honest advice. Another company tried to sell me a new system, but Roman's Service fixed my existing one for a fraction of the cost.",
-    rating: 5
+    service: "Compressor Repair",
+    date: "September 2023"
   },
   {
-    name: "David Chen",
+    title: "Maintenance - Venice, FL",
+    source: "Facebook Review",
+    rating: "5/5",
+    text: "As a retired homeowner, I appreciated how Roman's took care of everything. They helped me choose the perfect unit for my budget, and their warranty gives me peace of mind.",
+    author: "Margaret W.",
     location: "Venice, FL",
-    content: "Process was smooth. The new energy-efficient furnace lowered our utility bill immediately. Highly recommend this crew.",
-    rating: 5
+    service: "Routine Maintenance",
+    date: "July 2023"
+  },
+  {
+    title: "Full Ductwork - Lakewood Ranch, FL",
+    source: "Angie's List",
+    rating: "5/5",
+    text: "From the very first consultation, the process was seamless. The load calculation helped me visualize exactly what my home needed. Couldn't be happier!",
+    author: "David L.",
+    location: "Lakewood Ranch",
+    service: "Duct Replacement",
+    date: "June 2023"
   }
 ];
 
 export const Testimonials: React.FC = () => {
   return (
-    <section id="reviews" className="py-24 bg-gray-50 border-t border-gray-100">
+    <section id="reviews" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-             <div className="flex items-center justify-center gap-2 mb-4">
-                 <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
-                 </div>
-                 <span className="text-lg font-bold text-gray-900">4.9/5 Average</span>
-             </div>
-            <h2 className="text-4xl font-black text-gray-900 tracking-tight mb-4">Sarasota Loves Us.</h2>
-            <p className="text-gray-500 font-medium">Join over 2,500 happy homeowners in the Florida Suncoast area.</p>
+        <div className="text-center mb-20">
+           <h2 className="text-4xl md:text-5xl font-serif font-bold text-black mb-6">
+             Beautiful Installs, <br/> Loved by Homeowners
+           </h2>
+           <p className="text-gray-500 text-lg font-light">
+             Don't just take our word for it – see why your neighbors chose Roman's for their most important investment.
+           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reviews.map((review, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="flex mb-4 space-x-1 text-yellow-400">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 text-lg leading-relaxed font-medium">"{review.content}"</p>
-              <div className="flex items-center justify-between">
-                   <div>
-                       <h4 className="font-bold text-gray-900">{review.name}</h4>
-                       <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mt-1">{review.location}</p>
-                   </div>
-                   <CheckCircle className="w-5 h-5 text-green-500 opacity-50" />
-              </div>
+            <div key={idx} className="bg-white p-8 border border-gray-100 flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
+               <div className="mb-6 border-b border-gray-100 pb-6">
+                  <p className="text-[10px] font-bold uppercase text-gray-400 mb-2 tracking-widest">{review.source}</p>
+                  <div className="flex justify-between items-center">
+                     <span className="font-bold text-black text-sm uppercase">{review.title}</span>
+                  </div>
+               </div>
+               
+               <div className="flex text-[#E31E24] mb-4 gap-1">
+                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+               </div>
+
+               <p className="text-gray-600 text-sm leading-relaxed italic mb-8 flex-grow">
+                 “{review.text}”
+               </p>
+
+               <div className="mt-auto">
+                  <p className="font-black text-black">{review.author}</p>
+                  <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">{review.location}</p>
+                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-50 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                     <span>{review.service}</span>
+                     <span>{review.date}</span>
+                  </div>
+               </div>
             </div>
           ))}
         </div>
